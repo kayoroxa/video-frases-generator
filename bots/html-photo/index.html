@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Francois+One&display=swap');
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        width: 1280px;
+        height: 720px;
+        box-sizing: border-box;
+        font-family: 'Francois One', sans-serif;
+        text-shadow: -1px 5px 1px #22222263;
+      }
+      .pt {
+        /* background-color: red; */
+        height: 40%;
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        margin-bottom: 2%;
+        /* flex: 1; */
+      }
+      .en {
+        /* background-color: green; */
+        height: 40%;
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        margin-top: 2%;
+        /* flex: 1; */
+      }
+      .container {
+        /* background: rgb(25, 136, 187); */
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.6)
+          ),
+          url('{{image}}');
+
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        /* background-size: 100% auto; */
+      }
+      .pt p {
+        font-size: 80px;
+        /* text-transform: uppercase; */
+        color: white;
+      }
+      .en p {
+        font-size: 80px;
+        /* text-transform: uppercase; */
+        color: rgb(255, 225, 52);
+      }
+    </style>
+    <link
+      href="https://rawgithub.com/nternetinspired/debug-css/master/debug.css"
+      media="all"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="pt">
+        <p>{{pt}}</p>
+      </div>
+      <div class="en">
+        <p>{{en}}</p>
+      </div>
+    </div>
+  </body>
+</html>

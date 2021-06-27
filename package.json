@@ -1,0 +1,20 @@
+{
+  "name": "utils",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.29.0"
+  },
+  "dependencies": {
+    "fluent-ffmpeg": "^2.1.2",
+    "glob": "^7.1.7",
+    "lodash": "^4.17.21",
+    "node-html-to-image": "^3.2.0"
+  }
+}
