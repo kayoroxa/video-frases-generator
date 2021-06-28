@@ -13,19 +13,24 @@ async function getAudios(pathFolderAudiosRecord) {
 
 const strToNameFile = str => {
   try {
-    return str.replace(/[\/\\:*?"<>\.\!]/g, '').trim()
+    return str
+      .replace(/[/\\:*?"<>.!]/g, '')
+      .toLowerCase()
+      .trim()
   } catch (error) {
     console.log(str)
   }
 }
+
+const formatSentence = str => _.upperFirst(str.replace(/\.|,$/g, '').trim())
 
 async function getFrases({ txtSentencesPath }) {
   const fileFrases = await fs.readFileSync(`${txtSentencesPath}`, {
     encoding: 'utf-8',
   })
   return fileFrases.split(/\r\n|\n|\r/gm).map(str => ({
-    pt: str.split('///')[1].toLowerCase().replace('\t', '').trim(),
-    en: str.split('///')[0].toLowerCase().replace('\t', '').trim(),
+    pt: str.split('///')[1].replace('\t', '').trim(),
+    en: str.split('///')[0].replace('\t', '').trim(),
   }))
   // .filter((v) => (v.length > 45 ? false : true));
 }
@@ -38,8 +43,8 @@ async function getFrasesWithAudio({
   const frasesSemAcentos = frases.map(v => ({
     enFile: strToNameFile(v.en),
     ptFile: strToNameFile(v.pt),
-    en: v.en.trim(),
-    pt: v.pt.trim(),
+    en: formatSentence(v.en),
+    pt: formatSentence(v.pt),
   }))
   const audios = await getAudios(pathFolderAudiosRecord)
 
