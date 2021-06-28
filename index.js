@@ -5,18 +5,19 @@ const getFrasesRandom = require('./utils/getFrasesRandom')
 const clearFolders = require('./utils/clearFolders')
 
 async function main() {
-  await clearFolders('./files/videos', './images')
+  await clearFolders('./files/videos', './files/images')
+
   const frasesRandom = await getFrasesRandom({
     pathFolderAudiosRecord: './files/audios',
     txtSentencesPath: './files/frases Regex.txt',
-    quantidade: 5,
+    quantidade: 100,
   })
 
-  console.log(frasesRandom)
+  console.log(`Got ${frasesRandom.length} random`)
   await htmlPhoto({
     pathFileHtml: './files/index.html',
     pathFolderExport: `./files/images`,
-    backgroundPath: './files/backgrounds/1.jpg',
+    backgroundPath: './files/backgrounds/52905.jpg',
     contents: frasesRandom,
   })
 
@@ -27,5 +28,6 @@ async function main() {
     rootPath: __dirname,
     filePathOutput: 'files/output/videoCompleto',
   })
+  await clearFolders('./files/videos', './files/images')
 }
 main()
