@@ -14,7 +14,6 @@ async function audioWithPhoto({
         // .fps(25)
         .outputOptions('-shortest')
         .on('end', () => {
-          console.log('Finished processing')
           resolve()
         })
         .save(pathExportFile)

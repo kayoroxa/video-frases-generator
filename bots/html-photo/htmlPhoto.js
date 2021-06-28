@@ -14,7 +14,7 @@ async function htmlPhoto({
   const html = await fs.readFileSync(pathFileHtml, {
     encoding: 'utf-8',
   })
-  console.log('htmlPhoto')
+  console.log('[HtmlToImage] Creating Images...')
   await nodeHtmlToImage({
     // output: pathFileExport.replace(/\.\w+$/g, '') + '.png',
     html: html,
@@ -24,7 +24,7 @@ async function htmlPhoto({
       output: `${pathFolderExport}/${content.enFile}.png`,
     })),
   })
-  console.log('The image was created successfully!')
+  console.log('[HtmlToImage] The image was created successfully!')
   return
 }
 module.exports = htmlPhoto
