@@ -14,7 +14,7 @@ async function getAudios(pathFolderAudiosRecord) {
 const strToNameFile = str => {
   try {
     return str
-      .replace(/[/\\:*?"<>.!]/g, '')
+      .replace(/[/\\:*?"<>.!']/g, '')
       .toLowerCase()
       .trim()
   } catch (error) {
@@ -46,10 +46,11 @@ async function getFrasesWithAudio({
     en: formatSentence(v.en),
     pt: formatSentence(v.pt),
   }))
-  const audios = await getAudios(pathFolderAudiosRecord)
-
+  const audiosNamesFormatted = await getAudios(pathFolderAudiosRecord)
   const newFrases = frasesSemAcentos.filter(
-    v => audios.includes(v.enFile) && audios.includes(v.ptFile)
+    v =>
+      audiosNamesFormatted.includes(v.enFile) &&
+      audiosNamesFormatted.includes(v.ptFile)
   )
   return newFrases
 }
