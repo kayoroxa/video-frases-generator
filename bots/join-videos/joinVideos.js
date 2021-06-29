@@ -26,22 +26,30 @@ async function generateTempFile(pathRoot, downloadFolder, customVideoSequence) {
     }
   )
 }
-async function joinVideosInTempFile(pathRoot, filePathOutput) {
-  const filePathOutputWithoutMp4 = filePathOutput.replace('.mp4', '')
-  const relativePathOutput = `${pathRoot}/${filePathOutputWithoutMp4}.mp4`
-  await exec(
-    `ffmpeg -y -f concat -safe 0 -i "tempVidList.txt" -c copy "${relativePathOutput}"`,
-    (error, stdout, stderr) => {
+
+async function execAsync(parameter) {
+  return new Promise(resolve => {
+    exec(parameter, (error, stdout, stderr) => {
       if (error) {
         console.error('[BOT JOIN_VIDEOS] Erro na compilação', stderr)
+        // reject()
         throw 'erro na compilação'
       }
       console.log('[BOT JOIN_VIDEOS] Compilado', stdout)
-      fs.unlink(`tempVidList.txt`, () => {
-        console.log('[BOT JOIN_VIDEOS] TEMP mylist deleted')
-      })
-    }
+      resolve()
+    })
+  })
+}
+
+async function joinVideosInTempFile(pathRoot, filePathOutput) {
+  const filePathOutputWithoutMp4 = filePathOutput.replace('.mp4', '')
+  const relativePathOutput = `${pathRoot}/${filePathOutputWithoutMp4}.mp4`
+  await execAsync(
+    `ffmpeg -y -f concat -safe 0 -i "tempVidList.txt" -c copy "${relativePathOutput}"`
   )
+  fs.unlinkSync(`tempVidList.txt`, () => {
+    console.log('[BOT JOIN_VIDEOS] TEMP mylist deleted')
+  })
 }
 
 async function joinVideos({
