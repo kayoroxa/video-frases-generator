@@ -18,9 +18,11 @@ async function htmlPhoto({
   await nodeHtmlToImage({
     // output: pathFileExport.replace(/\.\w+$/g, '') + '.png',
     html: html,
-    content: contents.map(content => ({
+    content: contents.map((content, index) => ({
       ...content,
       image: dataURI,
+      percentage: ((index + 1) * 100) / contents.length,
+      count: `${index + 1}/${contents.length}`,
       output: `${pathFolderExport}/${content.enFile}.png`,
     })),
   })
