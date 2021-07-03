@@ -1,6 +1,12 @@
 const audioWithPhoto = require('./audioWithPhoto')
 
 async function audiosWithPhotos(frasesRandom) {
+  await audioWithPhoto({
+    pathFileAudio: `./files/cta/500 palavras.mp3`,
+    pathFilePhoto: `./files/cta/500 palavras.png`,
+    pathExportFile: `./files/cta/500 palavras.mp4`,
+  })
+  console.log('[Audio With Photo] Criou video CTA')
   for (const [index, frase] of frasesRandom.entries()) {
     const percentage = ((index + 1) * 100) / frasesRandom.length
     await audioWithPhoto({
