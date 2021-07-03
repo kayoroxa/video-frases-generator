@@ -2,18 +2,32 @@ const exec = require('child_process').exec
 const fs = require('fs')
 const glob = require('glob')
 
-async function generateTempFile(pathRoot, downloadFolder, customVideoSequence) {
-  const filesList = await glob.sync('*.mp4', {
-    cwd: `${pathRoot}/${downloadFolder}/`,
-  })
-
+async function generateTempFile(
+  pathRoot,
+  downloadFolder,
+  customVideoSequence,
+  customTemp
+) {
+  const filesList = await glob
+    .sync('*.mp4', {
+      cwd: `${pathRoot}/${downloadFolder}/`,
+    })
+    .sort(function (a, b) {
+      return (
+        fs.statSync(`${pathRoot}/${downloadFolder}/` + a).mtime.getTime() -
+        fs.statSync(`${pathRoot}/${downloadFolder}/` + b).mtime.getTime()
+      )
+    })
   const listVideos = customVideoSequence || filesList
 
   const stringPraEscrever = listVideos
-    .map(fileName => `file '${pathRoot}${downloadFolder}/${fileName}'`)
+    .map(fileName => {
+      return (
+        customTemp({ pathRoot, fileName, downloadFolder }) ||
+        `file '${pathRoot}${downloadFolder}/${fileName}'`
+      )
+    })
     .join('\n')
-
-  console.log(`[BOT JOIN_VIDEOS] Joining ${JSON.stringify(filesList)}`)
 
   fs.writeFile(
     `${pathRoot}/tempVidList.txt`,
@@ -57,8 +71,14 @@ async function joinVideos({
   filePathOutput,
   rootPath,
   customVideoSequence,
+  customTemp = () => false,
 }) {
-  await generateTempFile(rootPath || './', pathVideos, customVideoSequence)
+  await generateTempFile(
+    rootPath || './',
+    pathVideos,
+    customVideoSequence,
+    customTemp
+  )
   await joinVideosInTempFile(rootPath || './', filePathOutput)
 }
 module.exports = joinVideos
