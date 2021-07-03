@@ -47,16 +47,8 @@
         width: 100%;
         height: 100%;
       }
-      .container {
-        position: relative;
-        /* background: rgb(25, 136, 187); */
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        height: 100%;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
+
+      .img-background {
         background-image: linear-gradient(
             rgba(0, 0, 0, 0.6),
             rgba(0, 0, 0, 0.6)
@@ -67,6 +59,23 @@
         background-position: center center;
         background-repeat: no-repeat;
         /* background-size: 100% auto; */
+      }
+
+      .simple-background {
+        background: linear-gradient(#43cea2, #185a9d);
+      }
+
+      .container {
+        position: relative;
+        /* background: rgb(25, 136, 187); */
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: black;
       }
       .pt p {
         font-size: 80px;
@@ -110,7 +119,7 @@
     <div class="pai-container">
       <div class="count"><p>{{count}}</p></div>
       <div class="progress"></div>
-      <div class="container">
+      <div class="container simple-background">
         <div class="pt shadow">
           <p>{{pt}}</p>
         </div>
