@@ -52,7 +52,8 @@ async function getFrasesWithAudio({
       audiosNamesFormatted.includes(v.enFile) &&
       audiosNamesFormatted.includes(v.ptFile)
   )
-  return newFrases
+  const uniqSentences = _.uniqBy(newFrases, 'enFile')
+  return uniqSentences
 }
 
 async function getFrasesRandom({
