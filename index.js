@@ -21,7 +21,7 @@ const Interface = `{
 
 async function main() {
   if (!typeCheck(Interface, config)) throw '>> Config not valid! <<'
-  clear && (await clearFolders(...folderClear))
+  clear && (await clearFolders({ folders: folderClear }))
   const getRandom = await getFrasesRandom({
     pathFolderAudiosRecord: './files/audios',
     txtSentencesPath: './files/frases Regex.txt',
@@ -50,6 +50,6 @@ async function main() {
       .toLocaleDateString()
       .replace(/\//g, '-')}`,
   })
-  clear && (await clearFolders(...folderClear))
+  clear && (await clearFolders({ folders: folderClear }))
 }
 main()

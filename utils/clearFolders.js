@@ -8,7 +8,8 @@ async function clearFolder({ folders, notFiles }) {
     const files = await fs.readdirSync(folder)
 
     for (const file of files) {
-      if (!notFiles.includes(file)) await fs.unlinkSync(path.join(folder, file))
+      if (!notFiles?.includes(file))
+        await fs.unlinkSync(path.join(folder, file))
     }
   }
   console.log('[BOT ClearFolder] Finished')
