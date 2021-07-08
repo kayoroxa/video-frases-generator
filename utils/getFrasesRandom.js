@@ -61,15 +61,20 @@ async function getFrasesRandom({
   txtSentencesPath,
   quantidade,
   all = false,
+  filter,
 }) {
   const frasesComAudios = await getFrasesWithAudio({
     pathFolderAudiosRecord,
     txtSentencesPath,
   })
-  console.log(`${frasesComAudios.length} frases encontradas`)
+  const frasesFiltered = filter
+    ? frasesComAudios.filter(v => filter(v.en))
+    : frasesComAudios
+
+  console.log(`${frasesFiltered.length} frases encontradas`)
   const frasesRandom = all
-    ? frasesComAudios
-    : _.sampleSize(frasesComAudios, quantidade || 10)
+    ? frasesFiltered
+    : _.sampleSize(frasesFiltered, quantidade || 10)
   return frasesRandom
 }
 module.exports = getFrasesRandom

@@ -5,29 +5,41 @@ const getFrasesRandom = require('./utils/getFrasesRandom')
 const clearFolders = require('./utils/clearFolders')
 const startNodeDataBase = require('data-base-node')
 const db = startNodeDataBase()
+const typeCheck = require('type-check').typeCheck
+const config = require('./config')
 
-const clear = false
-const folderClear = ['./files/images', './files/videos']
+const clear = config.clear
+const folderClear = config.folderClear
+
+const Interface = `{
+  clear: Boolean,
+  folderClear: [String],
+  quantidadeSentences: Number,
+  backgroundPath: String,
+  filter : Function | Undefined,
+}`
 
 async function main() {
+  if (!typeCheck(Interface, config)) throw '>> Config not valid! <<'
   clear && (await clearFolders(...folderClear))
   const getRandom = await getFrasesRandom({
     pathFolderAudiosRecord: './files/audios',
     txtSentencesPath: './files/frases Regex.txt',
-    // quantidade: 100,
-    all: true,
+    quantidade: config.quantidadeSentences,
+    filter: config.filter,
+    // all: true,
   })
   console.log(getRandom)
   const dbFrasesRandom = db.tryLoad('frasesRandom').orStartWith(getRandom)
   clear && dbFrasesRandom.setValue(getRandom)
   dbFrasesRandom.save()
-  const frasesRandom = getRandom //|| dbFrasesRandom.value()
+  const frasesRandom = getRandom //dbFrasesRandom.value()
 
   console.log(`Got ${frasesRandom.length} random`)
   await htmlPhoto({
     pathFileHtml: './files/index.html',
     pathFolderExport: `./files/images`,
-    backgroundPath: './files/backgrounds/1.jpg',
+    backgroundPath: config.backgroundPath,
     contents: frasesRandom,
   })
   await audiosWithPhotos(frasesRandom)
