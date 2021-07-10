@@ -6,10 +6,9 @@ const clearFolders = require('./utils/clearFolders')
 const startNodeDataBase = require('data-base-node')
 const db = startNodeDataBase()
 const typeCheck = require('type-check').typeCheck
-const config = require('./config')
-
-const clear = config.clear
-const folderClear = config.folderClear
+const configDefault = require('./config')
+const runConfigInput = require('./input')
+const readlineSync = require('readline-sync')
 
 const Interface = `{
   clear: Boolean,
@@ -20,6 +19,11 @@ const Interface = `{
 }`
 
 async function main() {
+  const configInput = runConfigInput()
+  const config = { ...configDefault, ...configInput }
+  const clear = config.clear
+  const folderClear = config.folderClear
+  console.log(config)
   if (!typeCheck(Interface, config)) throw '>> Config not valid! <<'
   clear && (await clearFolders({ folders: folderClear }))
   const getRandom = await getFrasesRandom({
@@ -52,4 +56,8 @@ async function main() {
   })
   clear && (await clearFolders({ folders: folderClear }))
 }
-main()
+try {
+  main()
+} catch (error) {
+  readlineSync.question(`Error: ${error.message}`)
+}
