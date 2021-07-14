@@ -4,3 +4,10 @@ node_modules
 *.png
 *.jpg
 *.mp4
+temp.js
+*.todo
+curso-free/content.json
+config.js
+dataBase/*
+frasesAula*.json
+launch.json
