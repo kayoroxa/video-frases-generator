@@ -1,6 +1,8 @@
 const readlineSync = require('readline-sync')
+const _ = require('lodash')
+const glob = require('glob')
 
-module.exports = () => {
+module.exports = async () => {
   const clear = readlineSync.question('Limpar? ', {
     trueValue: ['yes', 'yeah', 'yep', 'y'],
     falseValue: ['no', 'nah', 'nope', 'n'],
@@ -14,7 +16,7 @@ module.exports = () => {
     limitMessage: 'Sorry, $<lastInput> is not number.',
   })
   const fotoName = readlineSync.question('Nome da foto: ', {
-    defaultInput: 'back (1)',
+    defaultInput: undefined,
   })
   const functionInput = readlineSync.question('Filtro: ', {
     defaultInput: undefined,
@@ -24,10 +26,13 @@ module.exports = () => {
   } catch (error) {
     throw new Error('Função do filtro não tá boa')
   }
+  const filesList = await glob.sync('*.jpg', {
+    cwd: `./files/backgrounds`,
+  })
   const configInput = {
     clear,
     quantidadeSentences: Number(quantidadeSentences),
-    backgroundPath: `./files/backgrounds/${fotoName}.jpg`,
+    backgroundPath: fotoName || `./files/backgrounds/${_.sample(filesList)}`,
     filter: functionInput ? eval(functionInput) : undefined,
   }
   return configInput

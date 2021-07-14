@@ -19,7 +19,7 @@ const Interface = `{
 }`
 
 async function main() {
-  const configInput = runConfigInput()
+  const configInput = await runConfigInput()
   const config = { ...configDefault, ...configInput }
   const clear = config.clear
   const folderClear = config.folderClear
