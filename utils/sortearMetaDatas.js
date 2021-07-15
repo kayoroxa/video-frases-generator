@@ -69,11 +69,16 @@ const metaTag = {
 function sortearMetaDatas() {
   const metaTagRandom = {
     title: _.sample(metaTag.titles),
-    descriptions:
-      _.sample(metaTag.descriptions) + '\n Curta e se inscreva no canal',
+    description: [
+      `📚 Link E-book com as 500 palavras mais usadas no inglês : https://hotm.art/top-500-palavras-ing?sck=frases`,
+      _.sample(metaTag.descriptions),
+      'Curta e se inscreva no canal',
+    ].join('\n\n'),
     tags: _.sampleSize(metaTag.tags, 10).join(', '),
   }
-  console.log(metaTagRandom)
+  console.log('title: \n', metaTagRandom.title)
+  console.log('description: \n', metaTagRandom.description)
+  console.log('tags: \n', metaTagRandom.tags)
 }
 sortearMetaDatas()
 module.exports = sortearMetaDatas
