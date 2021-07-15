@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="debug.css" /> -->
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    /> -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Francois+One&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
+      @import url('db.onlinewebfonts.com/c/0801c08e5412f54e4b4e9ad146d83a12?family=Ink+Free');
+      @import url('//db.onlinewebfonts.com/c/800e985f75a5a56c2f7b4be502d286de?family=Burbank+Big+Condensed');
+      /* @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap'); */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body,
+      html {
+        text-align: center;
+        width: 1280px;
+        height: 720px;
+        /* box-sizing: border-box !important; */
+        /* font-family: 'Francois One', sans-serif; */
+        font-family: 'Burbank Big Condensed', cursive;
+
+        font-size: 225%;
+        /* background-color: #ff0000; */
+        background-image: url('{{image}}');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        color: #ff0000;
+        text-transform: uppercase;
+      }
+      .container {
+        margin: auto;
+        width: 95%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 0.4fr 1.3fr 1.3fr;
+        gap: 0px 200px;
+        grid-template-areas:
+          'index index'
+          'en pt'
+          'pronunciation pt';
+      }
+      .en {
+        font-size: 150%;
+        justify-self: center;
+        align-self: end;
+        grid-area: en;
+      }
+      .pronunciation {
+        word-wrap: break-word;
+        justify-self: center;
+        align-self: start;
+        grid-area: pronunciation;
+        font-size: 100%;
+        font-family: 'Ink Free', cursive;
+      }
+      .pt {
+        font-size: 150%;
+        margin-top: -100px;
+        justify-self: center;
+        align-self: center;
+        grid-area: pt;
+        color: white;
+      }
+      .index {
+        justify-self: center;
+        align-self: center;
+        grid-area: index;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="en"><p>{{word}}</p></div>
+      <div class="pt"><p>{{translation}}</p></div>
+    </div>
+  </body>
+</html>

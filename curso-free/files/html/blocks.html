@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="debug.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Francois+One&display=swap');
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        width: 1280px;
+        height: 720px;
+        box-sizing: border-box !important;
+        font-family: 'Francois One', sans-serif;
+        font-size: 230%;
+        color: white;
+        text-transform: uppercase;
+      }
+
+      .topo {
+        margin-top: 20px !important;
+        background-color: #ff0000;
+        /* border-radius: 100px; */
+      }
+      .main {
+        height: 59%;
+        width: 98%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        flex: 1;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+      .footer {
+        height: 180px;
+        width: 100%;
+        padding: 0;
+        background-color: #ff0000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* border-top: dashed 5px; */
+        border-radius: 40px 40px 0px 0px;
+      }
+      .footerContent {
+        position: relative;
+        height: 70%;
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: auto;
+        gap: 10px;
+      }
+      .block {
+        /* width: 200px; */
+        margin: 6px 6px;
+        min-width: 100px;
+        padding: 0px 20px;
+        margin-bottom: 0 !important;
+        text-align: center;
+        border-radius: 30px;
+        background-color: #4472c4;
+        box-shadow: 3px 3px #0d2d64da;
+      }
+      .block:empty {
+        display: none;
+      }
+
+      .containerBlocks > div > .block {
+        /* font-size: 110%; */
+      }
+      .containerBlocks > div > .block:first-child {
+        background-color: #ff0000;
+        box-shadow: 3px 3px #9e0d0dda;
+      }
+      .containerBlocks {
+        display: flex;
+        justify-content: center;
+        /* gap: 10px; */
+        /* height: 108px; */
+        /* align-items: center; */
+      }
+      .containerBlocks > div {
+        display: flex;
+        flex-direction: column;
+        height: 115px;
+        justify-content: space-between;
+      }
+      .separator {
+        margin-top: 15px;
+        margin-bottom: 5px;
+
+        width: 600px;
+        height: 5px;
+        background-color: rgba(128, 128, 128, 0.822);
+      }
+      .aviso {
+        font-size: 20px;
+        color: rgba(128, 128, 128, 0.822);
+      }
+      h1 {
+        font-size: 145%;
+      }
+      h1 > span {
+        font-size: 80%;
+        background: #4472c4;
+        padding: 0px 10px;
+        border-radius: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="topo columns is-vcentered">
+      <div class="column is-10 has-text-centered">
+        <h1>
+          VAMOS MONTAR FRASE COM
+          <span>{{word}}</span>
+          🎈
+        </h1>
+      </div>
+      <div class="column is-2 has-text-centered">
+        <h1>{{progress}}</h1>
+      </div>
+    </div>
+    <div class="main">
+      <div class="containerBlocks">
+        <div>
+          <div class="block top">{{pt0}}</div>
+          <div class="block top">{{en0}}</div>
+        </div>
+        <div>
+          <div class="block top">{{pt1}}</div>
+          <div class="block top">{{en1}}</div>
+        </div>
+        <div>
+          <div class="block top">{{pt2}}</div>
+          <div class="block top">{{en2}}</div>
+        </div>
+        <div>
+          <div class="block top">{{pt3}}</div>
+          <div class="block top">{{en3}}</div>
+        </div>
+        <div>
+          <div class="block top">{{pt4}}</div>
+          <div class="block top">{{en4}}</div>
+        </div>
+        <div>
+          <div class="block top">{{pt5}}</div>
+          <div class="block top">{{en5}}</div>
+        </div>
+        <div>
+          <div class="block top">{{pt6}}</div>
+          <div class="block top">{{en6}}</div>
+        </div>
+      </div>
+      <div class="separator"></div>
+      <div class="aviso">
+        *Contém vocabulário que aprendemos nas aulas anteriores*
+      </div>
+    </div>
+    <div class="footer">
+      <div class="footerContent">
+        <div class="block">{{en-op0}}</div>
+        <div class="block">{{en-op3}}</div>
+        <div class="block">{{en-op1}}</div>
+        <div class="block">{{en-op4}}</div>
+        <div class="block">{{en-op2}}</div>
+        <div class="block">{{en-op6}}</div>
+        <div class="block">{{en-op5}}</div>
+      </div>
+    </div>
+    <!-- <script>
+      document.querySelector('.containerBlocks').innerHTML += {{blocksTop}}
+    </script> -->
+  </body>
+</html>
