@@ -1,0 +1,1 @@
+const frases = require('./frases.json')

@@ -1,0 +1,352 @@
+[
+  {
+    "word": "i'm",
+    "translation": "",
+    "pronunciation": "aiem",
+    "sentences": [
+      {
+        "en": "i'm going to talk.",
+        "pt": "> eu_estou indo para conversa"
+      },
+      {
+        "en": "i'm going to say",
+        "pt": "> eu_estou indo para dizer"
+      },
+      {
+        "en": "i'm not going to do that.",
+        "pt": "> eu_estou não indo para faz naquela"
+      },
+      {
+        "en": "i'm not going to do it.",
+        "pt": "> eu_estou não indo para faz isto"
+      },
+      {
+        "en": "i'm never happy",
+        "pt": "> eu_estou nunca feliz"
+      }
+    ]
+  },
+  {
+    "word": "you",
+    "translation": "",
+    "pronunciation": "yuu",
+    "sentences": [
+      {
+        "en": "i'll show you something...",
+        "pt": "> doente mostrar vocês alguma_coisa"
+      },
+      {
+        "en": "i'll talk to you later.",
+        "pt": "> doente conversa para vocês "
+      },
+      {
+        "en": "all you are is a...",
+        "pt": "> tudo vocês estão é uma"
+      },
+      {
+        "en": "why didn't you say something?",
+        "pt": "> por_quê não vocês dizer alguma_coisa"
+      },
+      {
+        "en": "why didn't you say so?",
+        "pt": "> por_quê não vocês dizer tão"
+      }
+    ]
+  },
+  {
+    "word": "right",
+    "translation": "",
+    "pronunciation": "ruait",
+    "sentences": [
+      {
+        "en": "right next to a huge,",
+        "pt": "> direito next para uma "
+      },
+      {
+        "en": "wait, something is not right.",
+        "pt": "> esperar alguma_coisa é não direito"
+      },
+      {
+        "en": "all right, we should talk.",
+        "pt": "> tudo direito nós deve conversa"
+      },
+      {
+        "en": "all right, so just listen.",
+        "pt": "> tudo direito tão somente ouço"
+      },
+      {
+        "en": "just let me. just let me, all right?",
+        "pt": "> somente deixar eu somente deixar eu tudo direito"
+      }
+    ]
+  },
+  {
+    "word": "well",
+    "translation": "",
+    "pronunciation": "uel",
+    "sentences": [
+      {
+        "en": "this is going really well.",
+        "pt": "> esta é indo realmente nós_vamos"
+      },
+      {
+        "en": "well... what are we going to do?",
+        "pt": "> nós_vamos o_que estão nós indo para faz"
+      },
+      {
+        "en": "well, something like that.",
+        "pt": "> nós_vamos alguma_coisa como naquela"
+      },
+      {
+        "en": "well, we don't know.",
+        "pt": "> nós_vamos nós não conhecer"
+      },
+      {
+        "en": "well, do it some more.",
+        "pt": "> nós_vamos faz isto algum mais"
+      }
+    ]
+  },
+  {
+    "word": "i",
+    "translation": "",
+    "pronunciation": "ai",
+    "sentences": [
+      {
+        "en": "even if i didn't just...",
+        "pt": "> até e_se eu não somente"
+      },
+      {
+        "en": "i didn't really have to.",
+        "pt": "> eu não realmente ter para"
+      },
+      {
+        "en": "if i didn't say this.",
+        "pt": "> e_se eu não dizer esta"
+      },
+      {
+        "en": "not about that, i didn't.",
+        "pt": "> não cerca_de naquela eu não"
+      },
+      {
+        "en": "i didn't want to know.",
+        "pt": "> eu não quer para conhecer"
+      }
+    ]
+  },
+  {
+    "word": "doing",
+    "translation": "",
+    "pronunciation": "duin",
+    "sentences": [
+      {
+        "en": "why are we doing this?",
+        "pt": "> por_quê estão nós fazendo esta"
+      },
+      {
+        "en": "are we really doing this?",
+        "pt": "> estão nós realmente fazendo esta"
+      },
+      {
+        "en": "so what are we doing?",
+        "pt": "> tão o_que estão nós fazendo"
+      },
+      {
+        "en": "are we doing this, or what?",
+        "pt": "> estão nós fazendo esta ou o_que"
+      },
+      {
+        "en": "so, tell me, why are we doing this?",
+        "pt": "> tão contar eu por_quê estão nós fazendo esta"
+      }
+    ]
+  },
+  {
+    "word": "here",
+    "translation": "",
+    "pronunciation": "rriir",
+    "sentences": [
+      {
+        "en": "we are here to help.",
+        "pt": "> nós estão aqui para ajuda"
+      },
+      {
+        "en": "why are we all here?",
+        "pt": "> por_quê estão nós tudo aqui"
+      },
+      {
+        "en": "that is why we are here.",
+        "pt": "> naquela é por_quê nós estão aqui"
+      },
+      {
+        "en": "what are we here to do?",
+        "pt": "> o_que estão nós aqui para faz"
+      },
+      {
+        "en": "we don't do that here.",
+        "pt": "> nós não faz naquela aqui"
+      }
+    ]
+  },
+  {
+    "word": "and",
+    "translation": "",
+    "pronunciation": "énd",
+    "sentences": [
+      {
+        "en": "and she didn't like it.",
+        "pt": "> e ela não como isto"
+      },
+      {
+        "en": "and think about how...",
+        "pt": "> e pensar cerca_de como"
+      },
+      {
+        "en": "all day and do nothing.",
+        "pt": "> tudo dia e faz nada"
+      },
+      {
+        "en": "and so it is me.",
+        "pt": "> e tão isto é eu"
+      },
+      {
+        "en": "and if we do not?",
+        "pt": "> e e_se nós faz não"
+      }
+    ]
+  },
+  {
+    "word": "for",
+    "translation": "",
+    "pronunciation": "fór",
+    "sentences": [
+      {
+        "en": "i'll need it for later.",
+        "pt": "> doente necessidade isto para "
+      },
+      {
+        "en": "what is it? what is it for?",
+        "pt": "> o_que é isto o_que é isto para"
+      },
+      {
+        "en": "just look for it",
+        "pt": "> somente veja para isto"
+      },
+      {
+        "en": "here's what to look for.",
+        "pt": "> aqui_está o_que para veja para"
+      },
+      {
+        "en": "for what? don't even know.",
+        "pt": "> para o_que não até conhecer"
+      }
+    ]
+  },
+  {
+    "word": "her",
+    "translation": "",
+    "pronunciation": "rrâr",
+    "sentences": [
+      {
+        "en": "i'll just tell her that...",
+        "pt": "> doente somente contar sua naquela"
+      },
+      {
+        "en": "don't talk to her.",
+        "pt": "> não conversa para sua"
+      },
+      {
+        "en": "give her back to me.",
+        "pt": "> dar sua voltar para eu"
+      },
+      {
+        "en": "please just give her to me.",
+        "pt": "> por_favor somente dar sua para eu"
+      },
+      {
+        "en": "tell me how to help her.",
+        "pt": "> contar eu como para ajuda sua"
+      }
+    ]
+  },
+  {
+    "word": "okay",
+    "translation": "",
+    "pronunciation": "ôkei",
+    "sentences": [
+      {
+        "en": "okay, i'll think about it.",
+        "pt": "> certo doente pensar cerca_de isto"
+      },
+      {
+        "en": "think about it, okay?",
+        "pt": "> pensar cerca_de isto certo"
+      },
+      {
+        "en": "okay, here's what we do.",
+        "pt": "> certo aqui_está o_que nós faz"
+      },
+      {
+        "en": "okay, here's what we know.",
+        "pt": "> certo aqui_está o_que nós conhecer"
+      },
+      {
+        "en": "okay, let me just tell...",
+        "pt": "> certo deixar eu somente contar"
+      }
+    ]
+  },
+  {
+    "word": "supposed",
+    "translation": "",
+    "sentences": [
+      {
+        "en": "what are we supposed to do,",
+        "pt": "> o_que estão nós para faz"
+      },
+      {
+        "en": "so what are we supposed to do?",
+        "pt": "> tão o_que estão nós para faz"
+      },
+      {
+        "en": "how are we supposed to do that?",
+        "pt": "> como estão nós para faz naquela"
+      },
+      {
+        "en": "what are we supposed to do with it?",
+        "pt": "> o_que estão nós para faz com isto"
+      },
+      {
+        "en": "she's supposed to say that.",
+        "pt": "> ela_é para dizer naquela"
+      }
+    ]
+  },
+  {
+    "word": "gonna",
+    "translation": "",
+    "pronunciation": "gona",
+    "sentences": [
+      {
+        "en": "so what are we gonna do?",
+        "pt": "> tão o_que estão nós vai faz"
+      },
+      {
+        "en": "how are we gonna do that?",
+        "pt": "> como estão nós vai faz naquela"
+      },
+      {
+        "en": "so how are we gonna do this?",
+        "pt": "> tão como estão nós vai faz esta"
+      },
+      {
+        "en": "how are we gonna to do that?",
+        "pt": "> como estão nós vai para faz naquela"
+      },
+      {
+        "en": "so... how are we gonna do it?",
+        "pt": "> tão como estão nós vai faz isto"
+      }
+    ]
+  }
+]
