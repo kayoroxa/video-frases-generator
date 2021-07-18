@@ -46,6 +46,10 @@ const metaTag = {
     'aprenda inglês dormindo',
     'aprender ingles dormindo',
     'aprender ingles dormindo funciona',
+    'frases pequenas em inglês',
+    'aprender inglês com frases pequenas',
+    'frases em inglês com palavras fáceis',
+    'treinar verbo to be com frases',
   ],
   titles: [
     'Aprenda inglês (X) frases curtas para aprender inglês rápido',
@@ -70,11 +74,11 @@ function sortearMetaDatas() {
   const metaTagRandom = {
     title: _.sample(metaTag.titles),
     description: [
-      `📚 Link E-book com as 500 palavras mais usadas no inglês : https://hotm.art/top-500-palavras-ing?sck=frases`,
+      `📚 Link E-book 500 palavras obrigatórias no inglês: https://hotm.art/top-500-palavras-ing?sck=frases`,
       _.sample(metaTag.descriptions),
       'Curta e se inscreva no canal',
     ].join('\n\n'),
-    tags: _.sampleSize(metaTag.tags, 10).join(', '),
+    tags: _.sampleSize(metaTag.tags, 15).join(', '),
   }
   console.log('title: \n', metaTagRandom.title)
   console.log('description: \n', metaTagRandom.description)
