@@ -11,6 +11,13 @@ async function main({ contents, pathFileHtml, pathFolderExport }) {
   const getIndex = word =>
     _.findIndex(_.uniqBy(contents, 'word'), { word: word })
 
+  const checkIfIsLast = obj => {
+    const array = Object.keys(obj)
+    const pt = array.filter(v => v.includes('pt'))
+    const en = array.filter(v => v.includes('en') && !v.includes('-'))
+    return en.length === pt.length
+  }
+
   await nodeHtmlToImage({
     html: html,
     content: contents.map((content, index) => ({
@@ -19,9 +26,9 @@ async function main({ contents, pathFileHtml, pathFolderExport }) {
       output: pathJoin(
         pathFolderExport,
         sanitize(
-          `2 ${getIndex(content.word)} ${content.word} ${String(
-            index + 3
-          )} .png`
+          `2 ${getIndex(content.word)} ${content.word} ${String(index + 3)} ${
+            checkIfIsLast(content) ? 'ultimo' : ''
+          }.png`
         )
       ),
     })),
