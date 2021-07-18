@@ -2,6 +2,8 @@ const palavrasAprendidas = require('./palavras-aprendidas.json')
 
 const pathJoin = require('path').join
 const frases = require(pathJoin(__dirname, './assets/frases.json'))
+const rootMakeWordsObj = require('./bots/makeWordObj')
+const getScoreFraseArray = require('./bots/getScoreFraseArray')
 
 const fs = require('fs')
 
@@ -10,9 +12,7 @@ const palavrasEn = fs
     encoding: 'utf-8',
   })
   .split('\r\n')
-// const palavrasPt = fs
-//   .readFileSync(pathJoin(__dirname, './assets/translation.txt'), { encoding: 'utf-8' })
-//   .split('\r\n')
+
 const pronunciations = fs
   .readFileSync(pathJoin(__dirname, './assets/pronunciations.txt'), {
     encoding: 'utf-8',
@@ -33,45 +33,6 @@ function compare(a, b) {
 const splitWordInFrase = frase => {
   const fraseLower = frase.toLowerCase()
   return fraseLower.match(/[a-zA-Z][’'a-zA-Z]*/gi)
-}
-
-const getScoreFraseArray = (fraseArray, palavrasAprendidas) => {
-  let score = 0
-  let quantosTem = 0
-  let lengthNewWords = 0
-  const wordsDid = []
-  const wordsLearning = []
-  const total = palavrasAprendidas.length
-  fraseArray.forEach(wordInFrase => {
-    const isHave = index => {
-      const resposta = palavrasAprendidas[index].findIndex(
-        item => wordInFrase.toLowerCase() === item.toLowerCase()
-      )
-      return resposta > -1 ? true : false
-    }
-    const getAdicionalScore = index => {
-      if (isHave(index)) return index
-      return -index
-    }
-    palavrasAprendidas.forEach((_, index) => {
-      const addScore = Number(getAdicionalScore(index))
-      if (addScore > 0) {
-        quantosTem += 1
-        if (index + 1 < total) wordsDid.push(wordInFrase.toLowerCase())
-        else wordsLearning.push(wordInFrase.toLowerCase())
-      }
-
-      score += addScore
-    })
-    if (isHave(total - 1)) lengthNewWords += 1
-  })
-  const porcentagemAchado = Math.round((quantosTem * 100) / fraseArray.length)
-  const porcentagemNewWords = Math.round(
-    (lengthNewWords * 100) / fraseArray.length
-  )
-  if (porcentagemNewWords === 0 || porcentagemAchado === 0) score -= 9000
-  score += porcentagemAchado
-  return [score, wordsDid, wordsLearning]
 }
 
 const fraseNoRepeat = fraseArray => {
@@ -107,7 +68,7 @@ const getScore = (wordsLearned = Object.values(palavrasAprendidas)) => {
   })
 }
 
-async function getBestsWords() {
+async function getBestsWords({ frasesLen, wordsLen }) {
   const makeWordsObj = rootMakeWordsObj({
     palavrasEn,
     translation,
@@ -119,8 +80,8 @@ async function getBestsWords() {
 
   const wordsObj = makeWordsObj({
     sortedDictScore,
-    frasesLen: 4,
-    wordsLen: 6,
+    frasesLen,
+    wordsLen,
   })
 
   console.log(wordsObj.map(v => v.word))
@@ -136,25 +97,10 @@ async function getBestsWords() {
   }
 }
 
-const stringify = require('json-stringify-pretty-compact')
-const rootMakeWordsObj = require('./bots/makeWordObj')
+const save = require('./bots/save')
 
 async function run() {
-  const { objJson, words } = await getBestsWords()
-  const palavrasAprendidasArray = Object.values(palavrasAprendidas)
-  const numberAula = palavrasAprendidasArray.length + 1
-  fs.writeFileSync(
-    pathJoin(__dirname, `./frasesAula${numberAula}.json`),
-    JSON.stringify(objJson, null, 2)
-  )
-
-  const newPalavrasAprendidas = {
-    ...palavrasAprendidas,
-    [numberAula]: words,
-  }
-  fs.writeFileSync(
-    pathJoin(__dirname, `./palavras-aprendidas.json`),
-    stringify(newPalavrasAprendidas)
-  )
+  const { objJson, words } = await getBestsWords({ frasesLen: 6, wordsLen: 7 })
+  save({ folder: __dirname, palavrasAprendidas, words, objJson })
 }
 run()
