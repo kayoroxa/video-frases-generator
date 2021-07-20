@@ -1,15 +1,13 @@
 const _ = require('lodash')
-
+const notTeach = require('../notTeach.json')
 const rootMakeWordsObj =
   root =>
   ({ sortedDictScore, frasesLen, wordsLen }) => {
     const allTopsWordsNotUsed = sortedDictScore
-      .filter(v => {
-        return v.othersWords.length === 1
-      })
-      .reduce((p, v) => {
-        return _.uniq([...p, ...v.othersWords])
-      }, [])
+      .filter(v => v.othersWords.length === 1)
+      .reduce((p, v) => _.uniq([...p, ...v.othersWords]), [])
+      .filter(v => !notTeach.includes(v))
+
     const retornar = allTopsWordsNotUsed.reduce((prev, word) => {
       // console.log(word)
       const frases = sortedDictScore
